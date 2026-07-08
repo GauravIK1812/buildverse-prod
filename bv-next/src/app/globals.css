@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  /* BuildVerse brand colors */
+  --color-bv-cyan: #00e5ff;
+  --color-bv-green: #39ff14;
+  --color-bv-bg: #06060f;
+  --color-bv-surface: rgba(255, 255, 255, 0.04);
+  --color-bv-border: rgba(0, 229, 255, 0.18);
+  --color-bv-text: #e2e8f0;
+  --color-bv-muted: #8b9bb4;
+}
+
+/* BuildVerse always-dark design system */
+:root {
+  --background: #06060f;
+  --foreground: #e2e8f0;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-foreground: #e2e8f0;
+  --popover: #0d0d1f;
+  --popover-foreground: #e2e8f0;
+  --primary: #00e5ff;
+  --primary-foreground: #06060f;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #e2e8f0;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: #8b9bb4;
+  --accent: rgba(0, 229, 255, 0.12);
+  --accent-foreground: #00e5ff;
+  --destructive: #ff4444;
+  --border: rgba(0, 229, 255, 0.18);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(0, 229, 255, 0.4);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply antialiased;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #06060f;
+    color: #e2e8f0;
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+  }
+}
+
+/* ============ BuildVerse Utilities ============ */
+
+@layer utilities {
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(90deg, #00e5ff, #39ff14);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    border-radius: 1rem;
+  }
+
+  /* Neon glow border */
+  .neon-glow-border {
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.1), inset 0 0 18px rgba(0, 229, 255, 0.03);
+  }
+
+  /* Neon glow green */
+  .neon-green-glow {
+    border: 1px solid rgba(57, 255, 20, 0.35);
+    box-shadow: 0 0 18px rgba(57, 255, 20, 0.08);
+  }
+
+  /* Button glow */
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.55);
+  }
+
+  /* Pulse dot */
+  .pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #39ff14;
+    animation: pulse-anim 2s infinite;
+    margin-right: 4px;
+  }
+}
+
+/* ============ Animations ============ */
+
+@keyframes pulse-anim {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7); }
+  50% { box-shadow: 0 0 0 6px rgba(57, 255, 20, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes reel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes led-blink {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.3; }
+}
+
+@keyframes led-blink-alt {
+  0%, 85%, 100% { opacity: 1; }
+  92% { opacity: 0.3; }
+}
+
+@keyframes prop-spin-a {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes prop-spin-b {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Workshop photo reel */
+.reel-track {
+  display: flex;
+  gap: 1rem;
+  animation: reel-scroll 32s linear infinite;
+  width: max-content;
+}
+
+.reel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Logo float */
+.logo-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Prop spin */
+.prop-a, .prop-c {
+  transform-origin: center;
+  animation: prop-spin-a 0.08s linear infinite;
+}
+
+.prop-b, .prop-d {
+  transform-origin: center;
+  animation: prop-spin-b 0.08s linear infinite;
+}
+
+/* LED animations */
+.led-blink {
+  animation: led-blink 3s ease-in-out infinite;
+}
+
+.led-blink-alt {
+  animation: led-blink-alt 2.5s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.6);
+}
+
+/* ============ Form Improvements ============ */
+
+.form-input-cyber {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input-cyber:focus {
+  border-color: rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.15) !important;
+  outline: none;
+}
+
+.form-input-cyber::placeholder {
+  color: #5a6a7e;
+}
+
+/* Digital ticket */
+.digital-ticket {
+  background: linear-gradient(135deg, #0a0a20 0%, #0d1530 100%);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 0.875rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.digital-ticket::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00e5ff, #39ff14);
+}
+
+/* Curriculum carousel tab active */
+.curriculum-tab-active {
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  border-bottom: 2px solid #00e5ff;
+}
