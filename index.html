@@ -88,6 +88,7 @@
 
             <!-- Navigation Actions -->
             <div class="nav-actions">
+                <!-- Dashboards Dropdown Commented Out
                 <div class="nav-dropdown select-dashboard-dropdown">
                     <button class="btn btn-secondary btn-sm dropdown-toggle" id="dashboard-dropdown-btn">
                         Dashboards
@@ -104,6 +105,7 @@
                         <a href="#" data-dashboard="admin" onclick="navigateToDashboard('admin')">Admin Dashboard</a>
                     </div>
                 </div>
+                -->
                 <button class="btn btn-primary btn-sm btn-glow" onclick="navigateTo('workshop')">Join Free
                     Workshop</button>
             </div>
@@ -144,6 +146,7 @@
             <div class="mobile-submenu-title">Connect</div>
             <a href="#" class="mobile-nav-link" data-page="community" onclick="navigateTo('community')">Community</a>
             <a href="#" class="mobile-nav-link" data-page="contact" onclick="navigateTo('contact')">Contact Us</a>
+            <!-- Mobile Dashboards Grid Commented Out
             <div class="mobile-submenu-title">Dashboards</div>
             <div class="mobile-dashboard-grid">
                 <a href="#" onclick="navigateToDashboard('student')">Student</a>
@@ -151,6 +154,7 @@
                 <a href="#" onclick="navigateToDashboard('mentor')">Mentor</a>
                 <a href="#" onclick="navigateToDashboard('admin')">Admin</a>
             </div>
+            -->
             <button class="btn btn-primary btn-glow" style="margin-top: 2rem; width: 100%;"
                 onclick="navigateTo('workshop')">Reserve Workshop Seat</button>
         </div>
@@ -309,10 +313,6 @@
                     <div class="stat-card glass-card">
                         <div class="stat-number gradient-text" id="stat-projects">45,000+</div>
                         <div class="stat-label">Projects Built</div>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <div class="stat-number gradient-text" id="stat-competitions">180+</div>
-                        <div class="stat-label">Competitions Finished</div>
                     </div>
                     <div class="stat-card glass-card">
                         <div class="stat-number gradient-text" id="stat-tech">12+</div>
@@ -675,7 +675,7 @@
                             </div>
 
                             <div class="success-actions">
-                                <a href="https://wa.me/916360660450" target="_blank" class="btn btn-success btn-block">
+                                <a href="https://chat.whatsapp.com/H8eXjyIYxVG3q7Dnz9jSTc" target="_blank" class="btn btn-success btn-block">
                                     💬 Join Workshop WhatsApp Group
                                 </a>
                                 <button class="btn btn-secondary btn-block" onclick="resetRegistrationForm()">
@@ -733,7 +733,6 @@
                                 <li>✨ Active community channels access</li>
                                 <li>✨ Digital certificate of achievements</li>
                                 <li class="disabled">❌ 1-on-1 monthly check-ins</li>
-                                <li class="disabled">❌ Competition entry passes</li>
                                 <li class="disabled">❌ Advanced hardware kit shipping</li>
                             </ul>
                         </div>
@@ -794,7 +793,6 @@
                                 <li>✨ Maximum 3 students per class</li>
                                 <li>✨ Unlimited project reviews & audits</li>
                                 <li>✨ Bi-weekly 1-on-1 career & portfolio strategy</li>
-                                <li>✨ Free access to all global competitions</li>
                                 <li>✨ High-end hardware kit shipped (ESP32, motors, sensors)</li>
                                 <li>✨ Custom domain portfolio website</li>
                                 <li>✨ Direct messaging to mentors 24/7</li>
@@ -839,293 +837,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- ================= COMPETITION ARENA VIEW ================= -->
-        <section id="competition-view" class="view-panel">
-            <div class="container page-content">
-                <div class="competition-layout-grid">
-                    <!-- Left main arena panel -->
-                    <div class="competition-main-col">
-                        <h1 class="page-title">Competition Arena</h1>
-                        <p class="page-desc">Compete with student innovators globally, build actual working prototypes,
-                            score XP, and win grand cash prizes.</p>
-
-                        <!-- Sub-Navigation tabs -->
-                        <div class="tab-menu glass-card">
-                            <button class="tab-btn active" data-comp-tab="active"
-                                onclick="switchCompTab('active')">Active Leagues</button>
-                            <button class="tab-btn" data-comp-tab="upcoming"
-                                onclick="switchCompTab('upcoming')">Upcoming Events</button>
-                            <button class="tab-btn" data-comp-tab="leaderboard"
-                                onclick="switchCompTab('leaderboard')">Leaderboard</button>
-                            <button class="tab-btn" data-comp-tab="rankings" onclick="switchCompTab('rankings')">School
-                                Rankings</button>
-                        </div>
-
-                        <!-- TAB CONTENT: ACTIVE LEAGUES -->
-                        <div class="comp-tab-panel active" id="comp-tab-active">
-                            <div class="competitions-grid">
-                                <div class="comp-card glass-card">
-                                    <div class="comp-badge status-live">LIVE NOW</div>
-                                    <h3 class="comp-title">AI Vision Challenge</h3>
-                                    <p class="comp-desc">Deploy an OpenCV edge model on a Raspberry Pi or computer to
-                                        recognize, categorize, and sort 5 different physical items in real-time.</p>
-                                    <div class="comp-meta">
-                                        <div>🏆 <strong>₹25,000 Prize Pool</strong></div>
-                                        <div>⏳ <strong>Ends in 6 days</strong></div>
-                                    </div>
-                                    <button class="btn btn-primary btn-sm btn-block btn-glow"
-                                        onclick="joinCompetition('AI Vision Challenge')">Enter Challenge</button>
-                                </div>
-
-                                <div class="comp-card glass-card">
-                                    <div class="comp-badge status-live">LIVE NOW</div>
-                                    <h3 class="comp-title">IoT Innovation Cup</h3>
-                                    <p class="comp-desc">Connect multiple sensors to an ESP32, stream telemetry via MQTT
-                                        protocols, and render a web dashboard showing ambient parameters.</p>
-                                    <div class="comp-meta">
-                                        <div>🏆 <strong>₹15,000 Prize Pool</strong></div>
-                                        <div>⏳ <strong>Ends in 12 days</strong></div>
-                                    </div>
-                                    <button class="btn btn-primary btn-sm btn-block btn-glow"
-                                        onclick="joinCompetition('IoT Innovation Cup')">Enter Challenge</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB CONTENT: UPCOMING LEAGUES -->
-                        <div class="comp-tab-panel" id="comp-tab-upcoming">
-                            <div class="competitions-grid">
-                                <div class="comp-card glass-card">
-                                    <div class="comp-badge status-upcoming">STARTS JULY 15</div>
-                                    <h3 class="comp-title">Drone Aerodynamics League</h3>
-                                    <p class="comp-desc">Program autonomous path coordinates for hexacopters to dodge
-                                        digital circular gates in a physics-based flight simulator.</p>
-                                    <div class="comp-meta">
-                                        <div>🏆 <strong>₹30,000 Prize Pool</strong></div>
-                                        <div>🎟️ <strong>Explorer passes valid</strong></div>
-                                    </div>
-                                    <button class="btn btn-secondary btn-sm btn-block"
-                                        onclick="registerUpcomingComp('Drone Aerodynamics League')">Pre-register</button>
-                                </div>
-
-                                <div class="comp-card glass-card">
-                                    <div class="comp-badge status-upcoming">STARTS AUG 01</div>
-                                    <h3 class="comp-title">Robotics Obstacle Cup</h3>
-                                    <p class="comp-desc">Design custom PID motor control scripts to navigate
-                                        differential drive rovers out of randomized complex mazes.</p>
-                                    <div class="comp-meta">
-                                        <div>🏆 <strong>₹50,000 Prize Pool</strong></div>
-                                        <div>🎟️ <strong>Innovator passes valid</strong></div>
-                                    </div>
-                                    <button class="btn btn-secondary btn-sm btn-block"
-                                        onclick="registerUpcomingComp('Robotics Obstacle Cup')">Pre-register</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB CONTENT: LEADERBOARD -->
-                        <div class="comp-tab-panel" id="comp-tab-leaderboard">
-                            <div class="table-wrapper glass-card">
-                                <table class="leaderboard-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>Student</th>
-                                            <th>City</th>
-                                            <th>Level</th>
-                                            <th>Total XP</th>
-                                            <th>Badges</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="rank-1">
-                                            <td>🥇 1</td>
-                                            <td>Aman Malhotra</td>
-                                            <td>Mumbai</td>
-                                            <td>Level 24</td>
-                                            <td>14,820 XP</td>
-                                            <td>🔥 🎖️ 🛡️</td>
-                                        </tr>
-                                        <tr class="rank-2">
-                                            <td>🥈 2</td>
-                                            <td>Rohan Murthy</td>
-                                            <td>Bengaluru</td>
-                                            <td>Level 22</td>
-                                            <td>13,400 XP</td>
-                                            <td>⚡ 🤖 🛰️</td>
-                                        </tr>
-                                        <tr class="rank-3">
-                                            <td>🥉 3</td>
-                                            <td>Sara Sen</td>
-                                            <td>Kolkata</td>
-                                            <td>Level 21</td>
-                                            <td>12,950 XP</td>
-                                            <td>🎖️ 👾 💻</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Kavya Das</td>
-                                            <td>New Delhi</td>
-                                            <td>Level 19</td>
-                                            <td>11,100 XP</td>
-                                            <td>🔥 🔌</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Kabir Bose</td>
-                                            <td>Pune</td>
-                                            <td>Level 18</td>
-                                            <td>10,500 XP</td>
-                                            <td>🛡️ 🛰️</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- TAB CONTENT: SCHOOL RANKINGS -->
-                        <div class="comp-tab-panel" id="comp-tab-rankings">
-                            <div class="table-wrapper glass-card">
-                                <table class="leaderboard-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>School Name</th>
-                                            <th>City</th>
-                                            <th>Students Enrolled</th>
-                                            <th>Points Gained</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>🥇 1</td>
-                                            <td>Delhi Public School (DPS)</td>
-                                            <td>Bengaluru</td>
-                                            <td>140 students</td>
-                                            <td>84,500 pts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>🥈 2</td>
-                                            <td>The Heritage School</td>
-                                            <td>Kolkata</td>
-                                            <td>92 students</td>
-                                            <td>61,200 pts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>🥉 3</td>
-                                            <td>Dhirubhai Ambani Intl School</td>
-                                            <td>Mumbai</td>
-                                            <td>75 students</td>
-                                            <td>58,900 pts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Bishop Cotton Boys' School</td>
-                                            <td>Bengaluru</td>
-                                            <td>88 students</td>
-                                            <td>47,400 pts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Don Bosco High School</td>
-                                            <td>Pune</td>
-                                            <td>64 students</td>
-                                            <td>39,800 pts</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Right gamification widget panel -->
-                    <div class="competition-sidebar-col">
-                        <div class="gamification-status-card glass-card">
-                            <h3>My Arena Stats</h3>
-                            <div class="stats-user-header">
-                                <span class="user-avatar-placeholder">🧒</span>
-                                <div>
-                                    <div class="user-name">Aarav Sharma (You)</div>
-                                    <div class="user-rank">Rank: #142 Global</div>
-                                </div>
-                            </div>
-
-                            <hr class="card-divider">
-
-                            <!-- Level Tracker -->
-                            <div class="xp-progress-container">
-                                <div class="xp-labels">
-                                    <span>Level 12</span>
-                                    <span>Level 13</span>
-                                </div>
-                                <div class="xp-progress-bar">
-                                    <div class="xp-progress-filled" style="width: 70%;"></div>
-                                </div>
-                                <div class="xp-details">
-                                    <span>700 / 1000 XP to Level Up</span>
-                                </div>
-                            </div>
-
-                            <!-- Currency Tracker -->
-                            <div class="currency-row">
-                                <div class="currency-box">
-                                    <span class="currency-emoji">🪙</span>
-                                    <div>
-                                        <div class="currency-val">340</div>
-                                        <div class="currency-lbl">BuildCoins</div>
-                                    </div>
-                                </div>
-                                <div class="currency-box">
-                                    <span class="currency-emoji">🔥</span>
-                                    <div>
-                                        <div class="currency-val">5 Days</div>
-                                        <div class="currency-lbl">Daily Streak</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-secondary btn-sm btn-block" onclick="claimDailyXP()">Claim Daily
-                                Reward (+50 XP)</button>
-
-                            <hr class="card-divider">
-
-                            <!-- Badges Section -->
-                            <h4 class="sidebar-sub-heading">My Badges</h4>
-                            <div class="badges-row">
-                                <div class="badge-icon-item"
-                                    title="Arduino Starter - Completed first micro-controller course">
-                                    🔌
-                                    <span class="tooltip">Arduino Starter</span>
-                                </div>
-                                <div class="badge-icon-item" title="IoT Connect - Interfaced Wifi module successfully">
-                                    📶
-                                    <span class="tooltip">IoT Connect</span>
-                                </div>
-                                <div class="badge-icon-item" title="Project Builder - Completed 5 projects">
-                                    🛠️
-                                    <span class="tooltip">Project Builder</span>
-                                </div>
-                                <div class="badge-icon-item locked"
-                                    title="Locked: AI Wizard - Deploy deep computer vision models">
-                                    🧠
-                                    <span class="tooltip">Locked: AI Wizard</span>
-                                </div>
-                                <div class="badge-icon-item locked"
-                                    title="Locked: Sky Master - Build a custom drone telemetry program">
-                                    🛸
-                                    <span class="tooltip">Locked: Sky Master</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
         <!-- ================= COMPONENT UNIVERSE VIEW ================= -->
         <section id="components-view" class="view-panel">
             <div class="container page-content">
@@ -1867,7 +1578,7 @@
                         <h3>WhatsApp Channels</h3>
                         <p>Receive immediate alerts regarding new project templates, homework templates, rescheduled
                             classes, and contest schedules.</p>
-                        <a href="https://wa.me/916360660450" target="_blank" class="btn btn-success btn-glow">Join
+                        <a href="https://chat.whatsapp.com/H8eXjyIYxVG3q7Dnz9jSTc" target="_blank" class="btn btn-success btn-glow">Join
                             WhatsApp Hub</a>
                     </div>
                 </div>
@@ -1992,10 +1703,11 @@
         </section>
 
 
-        <!-- ================= DASHBOARDS VIEW ================= -->
+        <!--
+        ================= DASHBOARDS VIEW =================
         <section id="dashboards-view" class="view-panel">
             <div class="container page-content">
-                <!-- Dashboard profile header tabs -->
+                Dashboard profile header tabs
                 <div class="dashboard-header-portal glass-card">
                     <span>PORTAL SWITCHER:</span>
                     <div class="portal-btns">
@@ -2010,10 +1722,10 @@
                     </div>
                 </div>
 
-                <!-- ================= STUDENT DASHBOARD ================= -->
+                ================= STUDENT DASHBOARD =================
                 <div class="dashboard-portal-panel active" id="portal-student">
                     <div class="dashboard-grid">
-                        <!-- Student Stats row -->
+                        Student Stats row
                         <div class="glass-card stat-summary-card col-span-3">
                             <div class="user-profile-header"
                                 style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
@@ -2028,7 +1740,7 @@
                             </div>
                         </div>
 
-                        <!-- Progress Circle widget -->
+                        Progress Circle widget
                         <div class="glass-card flex-col-center">
                             <h3>Course Progress</h3>
                             <div class="progress-circle-widget">
@@ -2044,7 +1756,7 @@
                             <p class="text-center" style="margin-top: 1rem;">7 of 10 milestones completed</p>
                         </div>
 
-                        <!-- Gamification Scorecard -->
+                        Gamification Scorecard
                         <div class="glass-card">
                             <h3>Gamified Level</h3>
                             <div class="scorecard-value gradient-text">LVL 12</div>
@@ -2056,7 +1768,7 @@
                             </div>
                         </div>
 
-                        <!-- Certificates Card -->
+                        Certificates Card
                         <div class="glass-card">
                             <h3>My Certificates</h3>
                             <div class="certificates-list-widget">
@@ -2077,7 +1789,7 @@
                             </div>
                         </div>
 
-                        <!-- Project submissions tracker -->
+                        Project submissions tracker
                         <div class="glass-card col-span-2">
                             <h3>My Active Projects</h3>
                             <div class="projects-track-list">
@@ -2098,7 +1810,7 @@
                             </div>
                         </div>
 
-                        <!-- Competitions enrolled list -->
+                        Competitions enrolled list
                         <div class="glass-card col-span-2">
                             <h3>Active Competitions</h3>
                             <div class="competitions-track-list">
@@ -2116,7 +1828,7 @@
                     </div>
                 </div>
 
-                <!-- ================= PARENT DASHBOARD ================= -->
+                ================= PARENT DASHBOARD =================
                 <div class="dashboard-portal-panel" id="portal-parent">
                     <div class="dashboard-grid">
                         <div class="glass-card col-span-3">
@@ -2133,7 +1845,7 @@
                             </div>
                         </div>
 
-                        <!-- Attendance Tracker -->
+                        Attendance Tracker
                         <div class="glass-card text-center">
                             <h3>Attendance Rate</h3>
                             <div class="scorecard-value gradient-text">96%</div>
@@ -2142,7 +1854,7 @@
                             <span class="badge-status">Excellent Status</span>
                         </div>
 
-                        <!-- Subscription Status -->
+                        Subscription Status
                         <div class="glass-card">
                             <h3>Subscription Billing</h3>
                             <div class="subscription-billing-widget">
@@ -2160,7 +1872,7 @@
                             </div>
                         </div>
 
-                        <!-- Report Card PDF Download -->
+                        Report Card PDF Download
                         <div class="glass-card">
                             <h3>Bi-Weekly Reports</h3>
                             <div class="reports-download-widget">
@@ -2177,7 +1889,7 @@
                             </div>
                         </div>
 
-                        <!-- Mentor direct message box -->
+                        Mentor direct message box
                         <div class="glass-card col-span-4">
                             <h3>Direct Message to Mentor (Dr. Anuj Sen)</h3>
                             <form onsubmit="handleMessageMentor(event)">
@@ -2190,7 +1902,7 @@
                     </div>
                 </div>
 
-                <!-- ================= MENTOR DASHBOARD ================= -->
+                ================= MENTOR DASHBOARD =================
                 <div class="dashboard-portal-panel" id="portal-mentor">
                     <div class="dashboard-grid">
                         <div class="glass-card col-span-3">
@@ -2208,7 +1920,7 @@
                             </div>
                         </div>
 
-                        <!-- Student Cohort Roster -->
+                        Student Cohort Roster
                         <div class="glass-card col-span-2">
                             <h3>Active Roster</h3>
                             <div class="table-wrapper">
@@ -2248,7 +1960,7 @@
                             </div>
                         </div>
 
-                        <!-- Assignment submissions pending -->
+                        Assignment submissions pending
                         <div class="glass-card">
                             <h3>Unreviewed Code</h3>
                             <div class="reports-download-widget">
@@ -2268,7 +1980,7 @@
                     </div>
                 </div>
 
-                <!-- ================= ADMIN DASHBOARD ================= -->
+                ================= ADMIN DASHBOARD =================
                 <div class="dashboard-portal-panel" id="portal-admin">
                     <div class="dashboard-grid">
                         <div class="glass-card col-span-3">
@@ -2285,7 +1997,7 @@
                             </div>
                         </div>
 
-                        <!-- Growth stats -->
+                        Growth stats
                         <div class="glass-card">
                             <h3>Total Revenue</h3>
                             <div class="scorecard-value gradient-text">₹12,45,000</div>
@@ -2302,7 +2014,7 @@
                             <p>100% capacity filled</p>
                         </div>
 
-                        <!-- Analytics log -->
+                        Analytics log
                         <div class="glass-card col-span-2">
                             <h3>System Logs</h3>
                             <div class="system-logs-widget">
@@ -2313,7 +2025,7 @@
                             </div>
                         </div>
 
-                        <!-- User Management list -->
+                        User Management list
                         <div class="glass-card col-span-2">
                             <h3>User Registrations</h3>
                             <div class="table-wrapper">
@@ -2346,7 +2058,7 @@
                             </div>
                         </div>
 
-                        <!-- Workshop Settings Manager -->
+                        Workshop Settings Manager
                         <div class="glass-card col-span-3" id="admin-settings-section">
                             <h3>Workshop Settings Manager</h3>
                             <p style="color: #888; font-size: 0.9rem; margin-bottom: 1.5rem;">Update the live parameters
@@ -2476,7 +2188,7 @@
             </div>
         </section>
 
-        <!-- ================= LOGIN VIEWS ================= -->
+        ================= LOGIN VIEWS =================
         <section id="student-login-view" class="view-panel">
             <div class="container page-content flex-col-center"
                 style="min-height: 70vh; justify-content: center; display: flex; align-items: center;">
@@ -2678,6 +2390,7 @@
                 </div>
             </div>
         </section>
+        -->
 
         <!-- ================= PRIVACY POLICY VIEW ================= -->
         <section id="privacy-view" class="view-panel">
@@ -2887,7 +2600,6 @@
                 <ul>
                     <li><a href="#" onclick="navigateTo('components')">Component Universe</a></li>
                     <li><a href="#" onclick="navigateTo('projects')">Project Database</a></li>
-                    <li><a href="#" onclick="navigateTo('competition')">Competition Arena</a></li>
                     <!-- <li><a href="#" onclick="navigateTo('career')">Career Explorer</a></li> -->
                     <li><a href="#" onclick="navigateTo('portfolio')">Workshop Portfolio</a></li>
                 </ul>
@@ -2906,7 +2618,7 @@
             <div class="footer-links-col">
                 <h4>Get in touch</h4>
                 <ul>
-                    <li>💬 <a href="https://wa.me/916360660450" target="_blank">WhatsApp Community</a></li>
+                    <li>💬 <a href="https://chat.whatsapp.com/H8eXjyIYxVG3q7Dnz9jSTc" target="_blank">WhatsApp Community</a></li>
                     <li>📞 <a href="tel:+916360660450">+91 63606 60450</a></li>
                     <li>✉️ <a href="mailto:klubx09@gmail.com">klubx09@gmail.com</a></li>
                 </ul>
@@ -2931,35 +2643,45 @@
     <script>
     (function () {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var drone = document.getElementById('fpv-drone');
-        var scene = drone && drone.closest('.drone-scene');
+
+        var drone  = document.getElementById('fpv-drone');
+        var scene  = drone && drone.closest('.drone-scene');
         if (!drone || !scene) return;
 
         var flying   = false;
-        var DURATION = 4600;
+        var DURATION = 4600; // ms — matches CSS animation
 
         function fly() {
             if (flying) return;
             flying = true;
+
+            /* snap hover animation, start cinematic */
             drone.style.animation = 'none';
-            drone.offsetHeight;
+            drone.offsetHeight;                       // force reflow
             drone.classList.add('cinematic');
             scene.classList.add('flying');
-            setTimeout(function () { drone.style.zIndex = '5';  }, Math.round(DURATION * 0.38));
+
+            /* ~40 % into flight → go behind logo (z-index dips below 10) */
+            setTimeout(function () { drone.style.zIndex = '5'; },  Math.round(DURATION * 0.38));
+            /* ~58 % → burst in front of logo */
             setTimeout(function () { drone.style.zIndex = '25'; }, Math.round(DURATION * 0.56));
+            /* cleanup after animation */
             setTimeout(function () {
                 drone.classList.remove('cinematic');
                 scene.classList.remove('flying');
-                drone.style.zIndex    = '';
+                drone.style.zIndex  = '';
                 drone.style.animation = '';
                 flying = false;
             }, DURATION + 60);
         }
 
         function schedule() {
-            setTimeout(function () { fly(); schedule(); }, 10000 + Math.random() * 2000);
+            /* 10–12 s random interval */
+            var delay = 10000 + Math.random() * 2000;
+            setTimeout(function () { fly(); schedule(); }, delay);
         }
 
+        /* First flight 3 s after load so the page settles */
         window.addEventListener('load', function () { setTimeout(schedule, 3000); });
     })();
     </script>
