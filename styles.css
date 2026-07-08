@@ -3256,6 +3256,104 @@ input:checked + .slider:before {
     animation: animated-logo-float 5s ease-in-out infinite;
 }
 
+/* ================= FPV DRONE SCENE ================= */
+.drone-scene {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+}
+
+.drone-trail-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.drone-trail-path {
+    transition: stroke-dashoffset 0.4s ease;
+}
+.drone-scene.flying .drone-trail-path {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drone-wrap {
+    position: absolute;
+    left: calc(50% + 115px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    will-change: transform;
+    animation: drone-hover 3s ease-in-out infinite;
+}
+
+@keyframes drone-hover {
+    0%, 100% { transform: translateY(calc(-50% + 0px)); }
+    50%       { transform: translateY(calc(-50% - 9px)); }
+}
+
+.prop { transform-box: fill-box; transform-origin: center; }
+.prop-a { animation: prop-cw  0.12s linear infinite; }
+.prop-b { animation: prop-ccw 0.12s linear infinite; }
+.prop-c { animation: prop-ccw 0.12s linear infinite; }
+.prop-d { animation: prop-cw  0.12s linear infinite; }
+
+@keyframes prop-cw  { to { transform: rotate(360deg);  } }
+@keyframes prop-ccw { to { transform: rotate(-360deg); } }
+
+.led-blink     { animation: led-pulse 1.4s ease-in-out infinite; }
+.led-blink-alt { animation: led-pulse 1.4s ease-in-out infinite 0.7s; }
+@keyframes led-pulse {
+    0%, 100% { opacity: 0.95; }
+    50%       { opacity: 0.35; }
+}
+
+.drone-shadow {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0,229,255,0.28) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(4px);
+    animation: shadow-scale 3s ease-in-out infinite;
+}
+@keyframes shadow-scale {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) scaleX(1);    }
+    50%       { opacity: 0.3; transform: translateX(-50%) scaleX(0.72); }
+}
+
+.drone-wrap.cinematic {
+    animation: drone-cinematic 4.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drone-cinematic {
+    0%  { transform: translateY(-50%) translateX(0px)    scale(1)    rotate(0deg);  }
+    18% { transform: translateY(-68%) translateX(-240px) scale(0.82) rotate(-6deg); }
+    40% { transform: translateY(-118%) translateX(-90px) scale(0.70) rotate(4deg);  }
+    58% { transform: translateY(-38%) translateX(18px)   scale(1.14) rotate(-2deg); }
+    72% { transform: translateY(-50%) translateX(30px)   scale(1.07) rotate(0deg);  }
+    100%{ transform: translateY(-50%) translateX(0px)    scale(1)    rotate(0deg);  }
+}
+
+.drone-svg {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .drone-scene { display: none; }
+}
+/* ================================================== */
+
 @keyframes pinBounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
@@ -3302,7 +3400,13 @@ input:checked + .slider:before {
         width: 300px;
         height: 300px;
     }
-    
+
+    .drone-wrap {
+        left: calc(50% + 85px);
+        top: 55%;
+    }
+    .drone-svg { width: 80px; height: 80px; }
+
     .tech-grid {
         grid-template-columns: repeat(2, 1fr);
     }

@@ -198,6 +198,102 @@
                             <!-- Overlay elements giving neon glowing borders -->
                             <div class="glow-ring neon-cyan"></div>
                             <div class="glow-ring neon-green"></div>
+
+                            <!-- FPV Drone Scene -->
+                            <div class="drone-scene" aria-hidden="true">
+                                <svg class="drone-trail-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="trailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
+                                            <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.6"/>
+                                            <stop offset="100%" stop-color="#39ff14" stop-opacity="0.8"/>
+                                        </linearGradient>
+                                        <filter id="trailGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feGaussianBlur stdDeviation="3" result="b"/>
+                                            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                        </filter>
+                                    </defs>
+                                    <path class="drone-trail-path"
+                                        d="M 290 180 C 220 180 60 130 40 180 C 20 230 160 160 290 180"
+                                        stroke="url(#trailGrad)" stroke-width="2.5" fill="none"
+                                        filter="url(#trailGlow)"
+                                        stroke-dasharray="400" stroke-dashoffset="400"/>
+                                </svg>
+
+                                <div class="drone-wrap" id="fpv-drone">
+                                    <div class="drone-shadow"></div>
+                                    <svg class="drone-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <filter id="propBlur" x="-30%" y="-30%" width="160%" height="160%">
+                                                <feGaussianBlur stdDeviation="1.2"/>
+                                            </filter>
+                                            <filter id="ledCyan" x="-100%" y="-100%" width="300%" height="300%">
+                                                <feGaussianBlur stdDeviation="2.5" result="b"/>
+                                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                            </filter>
+                                            <filter id="ledGreen" x="-100%" y="-100%" width="300%" height="300%">
+                                                <feGaussianBlur stdDeviation="2.5" result="b"/>
+                                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                            </filter>
+                                            <filter id="droneDrop" x="-20%" y="-20%" width="140%" height="140%">
+                                                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00e5ff" flood-opacity="0.25"/>
+                                            </filter>
+                                        </defs>
+                                        <!-- Arms -->
+                                        <line x1="60" y1="60" x2="18" y2="18" stroke="#18183a" stroke-width="7" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="102" y2="18" stroke="#18183a" stroke-width="7" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="18" y2="102" stroke="#18183a" stroke-width="7" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="102" y2="102" stroke="#18183a" stroke-width="7" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="18" y2="18" stroke="#30305a" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="102" y2="18" stroke="#30305a" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="18" y2="102" stroke="#30305a" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="60" y1="60" x2="102" y2="102" stroke="#30305a" stroke-width="1.8" stroke-linecap="round"/>
+                                        <!-- Motor bells -->
+                                        <circle cx="18" cy="18" r="10" fill="#111128" stroke="#282850" stroke-width="1.5"/>
+                                        <circle cx="102" cy="18" r="10" fill="#111128" stroke="#282850" stroke-width="1.5"/>
+                                        <circle cx="18" cy="102" r="10" fill="#111128" stroke="#282850" stroke-width="1.5"/>
+                                        <circle cx="102" cy="102" r="10" fill="#111128" stroke="#282850" stroke-width="1.5"/>
+                                        <circle cx="18" cy="18" r="5.5" fill="#1c1c40"/>
+                                        <circle cx="102" cy="18" r="5.5" fill="#1c1c40"/>
+                                        <circle cx="18" cy="102" r="5.5" fill="#1c1c40"/>
+                                        <circle cx="102" cy="102" r="5.5" fill="#1c1c40"/>
+                                        <!-- Propellers -->
+                                        <g class="prop prop-a">
+                                            <ellipse cx="18" cy="18" rx="15" ry="2.2" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                            <ellipse cx="18" cy="18" rx="2.2" ry="15" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                        </g>
+                                        <g class="prop prop-b">
+                                            <ellipse cx="102" cy="18" rx="15" ry="2.2" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                            <ellipse cx="102" cy="18" rx="2.2" ry="15" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                        </g>
+                                        <g class="prop prop-c">
+                                            <ellipse cx="18" cy="102" rx="15" ry="2.2" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                            <ellipse cx="18" cy="102" rx="2.2" ry="15" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                        </g>
+                                        <g class="prop prop-d">
+                                            <ellipse cx="102" cy="102" rx="15" ry="2.2" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                            <ellipse cx="102" cy="102" rx="2.2" ry="15" fill="rgba(185,190,215,0.58)" filter="url(#propBlur)"/>
+                                        </g>
+                                        <!-- FC stack -->
+                                        <rect x="44" y="44" width="32" height="32" rx="6" fill="#0c0c20" stroke="#20204a" stroke-width="1.5" filter="url(#droneDrop)"/>
+                                        <rect x="48" y="48" width="24" height="24" rx="4" fill="#111130"/>
+                                        <!-- Camera -->
+                                        <rect x="50" y="35" width="20" height="14" rx="4" fill="#090916" stroke="#1a1a38" stroke-width="1"/>
+                                        <circle cx="60" cy="42" r="5.5" fill="#07070f" stroke="#1e1e3e" stroke-width="1"/>
+                                        <circle cx="60" cy="42" r="3" fill="#030308"/>
+                                        <circle cx="58.5" cy="40.5" r="1" fill="rgba(255,255,255,0.3)"/>
+                                        <!-- VTX antenna -->
+                                        <line x1="60" y1="35" x2="60" y2="20" stroke="#484868" stroke-width="1.5" stroke-dasharray="2 2"/>
+                                        <circle cx="60" cy="19" r="2" fill="#68688a"/>
+                                        <!-- Front LEDs – cyan -->
+                                        <circle cx="18" cy="18" r="3.5" fill="#00e5ff" filter="url(#ledCyan)" class="led-blink"/>
+                                        <circle cx="102" cy="18" r="3.5" fill="#00e5ff" filter="url(#ledCyan)" class="led-blink"/>
+                                        <!-- Rear LEDs – green -->
+                                        <circle cx="18" cy="102" r="3.5" fill="#39ff14" filter="url(#ledGreen)" class="led-blink-alt"/>
+                                        <circle cx="102" cy="102" r="3.5" fill="#39ff14" filter="url(#ledGreen)" class="led-blink-alt"/>
+                                    </svg>
+                                </div>
+                            </div><!-- /.drone-scene -->
                         </div>
                     </div>
                 </div>
@@ -2830,6 +2926,43 @@
     <!-- Supabase JS Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js"></script>
+
+    <!-- FPV Drone cinematic controller -->
+    <script>
+    (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var drone = document.getElementById('fpv-drone');
+        var scene = drone && drone.closest('.drone-scene');
+        if (!drone || !scene) return;
+
+        var flying   = false;
+        var DURATION = 4600;
+
+        function fly() {
+            if (flying) return;
+            flying = true;
+            drone.style.animation = 'none';
+            drone.offsetHeight;
+            drone.classList.add('cinematic');
+            scene.classList.add('flying');
+            setTimeout(function () { drone.style.zIndex = '5';  }, Math.round(DURATION * 0.38));
+            setTimeout(function () { drone.style.zIndex = '25'; }, Math.round(DURATION * 0.56));
+            setTimeout(function () {
+                drone.classList.remove('cinematic');
+                scene.classList.remove('flying');
+                drone.style.zIndex    = '';
+                drone.style.animation = '';
+                flying = false;
+            }, DURATION + 60);
+        }
+
+        function schedule() {
+            setTimeout(function () { fly(); schedule(); }, 10000 + Math.random() * 2000);
+        }
+
+        window.addEventListener('load', function () { setTimeout(schedule, 3000); });
+    })();
+    </script>
 </body>
 
 </html>
