@@ -225,8 +225,8 @@ function initCanvasParticles() {
 /* ================= 3. STATISTICS COUNTER INCREMENTER ================= */
 function initStatsCounter() {
     const stats = [
-        { id: 'stat-students', target: 12500, labelSuffix: '+' },
-        { id: 'stat-projects', target: 45000, labelSuffix: '+' },
+        { id: 'stat-students', target: 450, labelSuffix: '' },
+        { id: 'stat-projects', target: 100, labelSuffix: '+' },
         { id: 'stat-tech', target: 12, labelSuffix: '+' }
     ];
 
@@ -283,8 +283,8 @@ function initCountdownTimer() {
 
 
 /* ================= 5. LIMITED SEATS DYNAMIC UPDATE ================= */
-let seatsFilled = 127;
-const TOTAL_SEATS = 150;
+let seatsFilled = 35;
+const TOTAL_SEATS = 50;
 
 function initSeatsSimulation() {
     const progressEl = document.getElementById('seats-progress');
@@ -1911,7 +1911,7 @@ function renderPortalData(portalId, uid) {
                 document.getElementById('admin-ws-datetime').value = d.dateTime || '';
                 document.getElementById('admin-ws-countdown').value = d.countdownEnd || '';
                 document.getElementById('admin-ws-status').value = d.status || 'open';
-                document.getElementById('admin-ws-maxseats').value = d.maxSeats || 150;
+                document.getElementById('admin-ws-maxseats').value = d.maxSeats || 50;
                 document.getElementById('admin-ws-whatsapp').value = d.whatsAppCommunityLink || '';
                 document.getElementById('admin-ws-giveaway').value = d.giveawayInfo || '';
                 document.getElementById('admin-ws-certs').value = d.certInfo || '';
@@ -1939,7 +1939,7 @@ async function handleSaveSettings(event) {
         dateTime: document.getElementById('admin-ws-datetime').value,
         countdownEnd: document.getElementById('admin-ws-countdown').value,
         status: document.getElementById('admin-ws-status').value,
-        maxSeats: parseInt(document.getElementById('admin-ws-maxseats').value, 10) || 150,
+        maxSeats: parseInt(document.getElementById('admin-ws-maxseats').value, 10) || 50,
         whatsAppCommunityLink: document.getElementById('admin-ws-whatsapp').value,
         giveawayInfo: document.getElementById('admin-ws-giveaway').value,
         certInfo: document.getElementById('admin-ws-certs').value,
@@ -1976,7 +1976,7 @@ function applyWorkshopSettings(data) {
     if (data.countdownEnd) window.wsTargetDate = new Date(data.countdownEnd);
     
     const taken = data.seatsTaken || 90;
-    const max = data.maxSeats || 150;
+    const max = data.maxSeats || 50;
     const seatsPrg = document.getElementById('seats-progress');
     const seatsLbl = document.getElementById('seats-taken');
     if (seatsPrg) seatsPrg.style.width = `${Math.min(100, Math.floor((taken/max)*100))}%`;
@@ -2027,7 +2027,7 @@ async function seedFirestoreDatabase() {
             dateTime: "July 15, 2026 • 5:00 PM",
             countdownEnd: "2026-07-15T17:00:00",
             status: "open",
-            maxSeats: 150,
+            maxSeats: 50,
             seatsTaken: 90,
             giveawayInfo: "Active students stand a chance to win 1 of 5 ESP8266 starter kits, breadboards, jumper wires, and sensory packages.",
             certInfo: "Every student receives a cryptographic digital certificate of participation to add to their academic portfolio.",
@@ -2117,7 +2117,7 @@ function setupMockFallbacks() {
         dateTime: "July 15, 2026 • 5:00 PM",
         countdownEnd: "2026-07-15T17:00:00",
         status: "open",
-        maxSeats: 150,
+        maxSeats: 50,
         seatsTaken: 90,
         giveawayInfo: "Active students stand a chance to win 1 of 5 ESP8266 starter kits, breadboards, jumper wires, and sensory packages.",
         certInfo: "Every student receives a cryptographic digital certificate of participation to add to their academic portfolio.",
