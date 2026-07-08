@@ -374,17 +374,14 @@ async function handleRegistrationSubmit(event) {
     const regId = `BV-ESP8266-${Math.floor(1000 + Math.random() * 9000)}`;
 
     const registrationData = {
-        registrationId: regId,
         studentName,
         parentName,
+        email,
         mobileNumber: mobile,
         whatsappNumber: whatsapp,
-        emailAddress: email,
         grade,
         schoolName: school,
         city,
-        previousExperience: prevExp,
-        interestedTechnologies: interests.join(', '),
         timestamp: new Date().toISOString()
     };
 
@@ -407,7 +404,6 @@ async function handleRegistrationSubmit(event) {
         }
     } catch (err) {
         console.error("Registration save failed:", err);
-        alert("Your seat is reserved! However we hit a snag saving your details — please WhatsApp us at +91 63606 60450 with your name and we will confirm manually.");
     }
 }
 
