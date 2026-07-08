@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ================= 1. SPA ROUTER SYSTEM ================= */
 const VIEWS = [
-    'home-view', 'workshop-view', 'membership-view', 'competition-view',
+    'home-view', 'workshop-view', 'membership-view',
     'components-view', 'projects-view', 'career-view', 'portfolio-view',
     'community-view', 'contact-view', 'dashboards-view',
     'student-login-view', 'parent-login-view', 'mentor-login-view', 'admin-login-view',
@@ -227,7 +227,6 @@ function initStatsCounter() {
     const stats = [
         { id: 'stat-students', target: 12500, labelSuffix: '+' },
         { id: 'stat-projects', target: 45000, labelSuffix: '+' },
-        { id: 'stat-competitions', target: 180, labelSuffix: '+' },
         { id: 'stat-tech', target: 12, labelSuffix: '+' }
     ];
 
@@ -464,39 +463,6 @@ function mirrorToWhatsapp() {
     const mobileEl = document.getElementById('mobile-num');
     const whatsappEl = document.getElementById('whatsapp-num');
     if (whatsappEl && whatsappEl.readOnly) whatsappEl.value = mobileEl.value;
-}
-
-
-/* ================= 8. COMPETITION ARENA OPERATIONS ================= */
-function switchCompTab(tabId) {
-    // Remove active state from all buttons
-    document.querySelectorAll('[data-comp-tab]').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // Add active state to selected button
-    document.querySelector(`[data-comp-tab="${tabId}"]`).classList.add('active');
-
-    // Hide all tabs
-    document.querySelectorAll('.comp-tab-panel').forEach(panel => {
-        panel.classList.remove('active');
-    });
-
-    // Show active tab panel
-    document.getElementById(`comp-tab-${tabId}`).classList.add('active');
-}
-
-function joinCompetition(challengeName) {
-    alert(`Enrolled in the ${challengeName}! Workspace resources and sensor mapping guides are loaded in your Student Dashboard.`);
-    navigateToDashboard('student');
-}
-
-function registerUpcomingComp(challengeName) {
-    alert(`Pre-registered for the ${challengeName}! We will ping you on WhatsApp when the sandbox repository opens.`);
-}
-
-function claimDailyXP() {
-    alert(`Daily streak maintained! +50 XP and +10 BuildCoins added to Aarav's wallet.`);
 }
 
 
@@ -1188,14 +1154,6 @@ function closeLightbox() {
 
 
 /* ================= 12. MOCK DASHBOARD PORTALS SWITCHER ================= */
-function navigateToDashboard(portalId) {
-    // Route to dashboards view first
-    navigateTo('dashboards');
-    
-    // Switch to active portal panel
-    switchDashboardPortal(portalId);
-}
-
 function switchDashboardPortal(portalId) {
     // Update tab active buttons
     document.querySelectorAll('[data-portal]').forEach(btn => {

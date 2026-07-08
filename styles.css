@@ -346,6 +346,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1rem;
 }
 
+/* Dashboard mobile nav grid (disabled along with dashboards feature)
 .mobile-dashboard-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -361,6 +362,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     border: 1px solid var(--color-border-subtle);
 }
+*/
 
 /* ================= GLASS CARDS AND WRAPPERS ================= */
 .glass-card {
@@ -733,7 +735,7 @@ select:focus {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -1647,109 +1649,6 @@ input:checked + .slider:before {
     color: var(--color-text-secondary);
 }
 
-/* ================= 4. COMPETITION ARENA STYLES ================= */
-.competition-layout-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 3.5rem;
-    align-items: flex-start;
-}
-
-.tab-menu {
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 8px;
-    margin: 2rem 0;
-}
-
-.tab-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    color: var(--color-text-secondary);
-    padding: 0.75rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: var(--transition-fast);
-}
-
-.tab-btn:hover {
-    color: var(--color-text-primary);
-}
-
-.tab-btn.active {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--color-text-primary);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
-.comp-tab-panel {
-    display: none;
-}
-
-.comp-tab-panel.active {
-    display: block;
-    animation: fadeIn 0.4s ease-out forwards;
-}
-
-.competitions-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.comp-card {
-    padding: 2rem;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.comp-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-}
-
-.comp-badge.status-live {
-    background: rgba(235, 87, 87, 0.1);
-    color: #eb5757;
-    border: 1px solid rgba(235, 87, 87, 0.3);
-}
-
-.comp-badge.status-upcoming {
-    background: rgba(var(--color-accent-cyan-rgb), 0.1);
-    color: var(--color-accent-cyan);
-    border: 1px solid rgba(var(--color-accent-cyan-rgb), 0.3);
-}
-
-.comp-title {
-    font-size: 1.35rem;
-    margin-bottom: 0.5rem;
-    padding-right: 6rem;
-}
-
-.comp-desc {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-}
-
-.comp-meta {
-    display: flex;
-    gap: 2rem;
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-}
-
 /* Leaderboard Tables styles */
 .table-wrapper {
     overflow-x: auto;
@@ -1791,181 +1690,10 @@ input:checked + .slider:before {
 .leaderboard-table tr.rank-3 td {
     background: rgba(205, 127, 50, 0.02);
 }
-
-/* Gamification status card */
-.gamification-status-card {
-    background: rgba(13,13,13,0.5);
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-.stats-user-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.25rem;
-}
-
-.user-avatar-placeholder {
-    font-size: 2.25rem;
-    width: 48px;
-    height: 48px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--color-border-subtle);
-}
-
-.user-name {
-    font-weight: 700;
-    font-size: 0.95rem;
-}
-
-.user-rank {
-    font-size: 0.75rem;
-    color: var(--color-accent-cyan);
-    font-weight: 600;
-}
-
 .card-divider {
     border: none;
     border-top: 1px solid var(--color-border-subtle);
     margin: 1.25rem 0;
-}
-
-/* XP level indicator progress */
-.xp-progress-container {
-    margin: 1.5rem 0;
-}
-
-.xp-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.xp-progress-bar {
-    width: 100%;
-    height: 6px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.xp-progress-filled {
-    height: 100%;
-    background: var(--color-accent-cyan);
-    border-radius: 3px;
-    transition: width 0.3s;
-}
-
-.xp-details {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    text-align: right;
-    margin-top: 0.25rem;
-}
-
-/* Currency tracking Row */
-.currency-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.currency-box {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--color-border-subtle);
-    padding: 0.75rem;
-    border-radius: 8px;
-}
-
-.currency-emoji {
-    font-size: 1.5rem;
-}
-
-.currency-val {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.currency-lbl {
-    font-size: 0.65rem;
-    color: var(--color-text-secondary);
-    font-weight: 600;
-}
-
-.sidebar-sub-heading {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-
-.badges-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.badge-icon-item {
-    font-size: 1.5rem;
-    width: 42px;
-    height: 42px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    transition: var(--transition-fast);
-}
-
-.badge-icon-item:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.badge-icon-item.locked {
-    opacity: 0.25;
-    background: #000;
-}
-
-/* Tooltip mechanics */
-.badge-icon-item .tooltip {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0d0d0d;
-    border: 1px solid var(--color-border-subtle);
-    padding: 0.4rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    color: #fff;
-    white-space: nowrap;
-    z-index: 10;
-    pointer-events: none;
-    box-shadow: var(--shadow-premium);
-}
-
-.badge-icon-item:hover .tooltip {
-    display: block;
-    animation: tooltipFade 0.2s ease-out;
 }
 
 /* ================= 5. COMPONENT UNIVERSE STYLES ================= */
@@ -2873,7 +2601,8 @@ input:checked + .slider:before {
     font-weight: 700;
 }
 
-/* ================= 13. DASHBOARD VIEWS AND CONSOLE STYLES ================= */
+/*
+================= 13. DASHBOARD VIEWS AND CONSOLE STYLES =================
 .dashboard-header-portal {
     display: flex;
     justify-content: space-between;
@@ -2925,7 +2654,7 @@ input:checked + .slider:before {
     animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* Dashboard grid layouts */
+Dashboard grid layouts
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2974,7 +2703,7 @@ input:checked + .slider:before {
     justify-content: center;
 }
 
-/* SVG circular progress ring */
+SVG circular progress ring
 .progress-circle-widget {
     position: relative;
     width: 120px;
@@ -3115,6 +2844,7 @@ input:checked + .slider:before {
     height: 120px;
     overflow-y: auto;
 }
+*/
 
 /* ================= 14. FOOTERS STYLES ================= */
 .footer {
@@ -3256,6 +2986,130 @@ input:checked + .slider:before {
     animation: animated-logo-float 5s ease-in-out infinite;
 }
 
+/* ================= FPV DRONE SCENE ================= */
+.drone-scene {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+}
+
+/* Trail SVG fills the scene */
+.drone-trail-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+/* Trail animates in during cinematic */
+.drone-trail-path {
+    transition: stroke-dashoffset 0.4s ease;
+}
+.drone-scene.flying .drone-trail-path {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Drone wrapper – base hover position */
+.drone-wrap {
+    position: absolute;
+    left: calc(50% + 115px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    will-change: transform;
+    animation: drone-hover 3s ease-in-out infinite;
+}
+
+@keyframes drone-hover {
+    0%, 100% { transform: translateY(calc(-50% + 0px)); }
+    50%       { transform: translateY(calc(-50% - 9px)); }
+}
+
+/* Propeller spin (counter-rotating pairs for realism) */
+.prop { transform-box: fill-box; transform-origin: center; }
+.prop-a { animation: prop-cw  0.12s linear infinite; }
+.prop-b { animation: prop-ccw 0.12s linear infinite; }
+.prop-c { animation: prop-ccw 0.12s linear infinite; }
+.prop-d { animation: prop-cw  0.12s linear infinite; }
+
+@keyframes prop-cw  { to { transform: rotate(360deg);  } }
+@keyframes prop-ccw { to { transform: rotate(-360deg); } }
+
+/* LED blink */
+.led-blink     { animation: led-pulse 1.4s ease-in-out infinite; }
+.led-blink-alt { animation: led-pulse 1.4s ease-in-out infinite 0.7s; }
+@keyframes led-pulse {
+    0%, 100% { opacity: 0.95; }
+    50%       { opacity: 0.35; }
+}
+
+/* Ground shadow – inside drone-wrap so it bobs with hover */
+.drone-shadow {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0,229,255,0.28) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(4px);
+    animation: shadow-scale 3s ease-in-out infinite;
+}
+@keyframes shadow-scale {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) scaleX(1);    }
+    50%       { opacity: 0.3; transform: translateX(-50%) scaleX(0.72); }
+}
+
+/* ---- Cinematic flight ---- */
+/* JS adds .cinematic to .drone-wrap; JS toggles z-index at the right moments */
+.drone-wrap.cinematic {
+    animation: drone-cinematic 4.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drone-cinematic {
+    0% {
+        transform: translateY(-50%) translateX(0px)    scale(1)    rotate(0deg);
+    }
+    /* sweep left – enter from left of logo */
+    18% {
+        transform: translateY(-68%) translateX(-240px) scale(0.82) rotate(-6deg);
+    }
+    /* arc high behind logo */
+    40% {
+        transform: translateY(-118%) translateX(-90px) scale(0.70) rotate(4deg);
+    }
+    /* burst to front */
+    58% {
+        transform: translateY(-38%) translateX(18px)  scale(1.14) rotate(-2deg);
+    }
+    /* brief hover in front */
+    72% {
+        transform: translateY(-50%) translateX(30px)  scale(1.07) rotate(0deg);
+    }
+    /* glide back */
+    100% {
+        transform: translateY(-50%) translateX(0px)   scale(1)    rotate(0deg);
+    }
+}
+
+/* Drone SVG size */
+.drone-svg {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+/* prefers-reduced-motion: kill all drone animations */
+@media (prefers-reduced-motion: reduce) {
+    .drone-scene { display: none; }
+}
+
 @keyframes pinBounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
@@ -3297,11 +3151,18 @@ input:checked + .slider:before {
         width: 240px;
         height: 240px;
     }
-    
+
     .glow-ring {
         width: 300px;
         height: 300px;
     }
+
+    /* On mobile the hero stacks vertically – reposition drone below the logo */
+    .drone-wrap {
+        left: calc(50% + 85px);
+        top: 55%;
+    }
+    .drone-svg { width: 80px; height: 80px; }
     
     .tech-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -3378,10 +3239,6 @@ input:checked + .slider:before {
         flex-direction: column;
         text-align: center;
         padding: 2.5rem;
-    }
-    
-    .competition-layout-grid {
-        grid-template-columns: 1fr;
     }
     
     .components-grid {
@@ -3465,7 +3322,8 @@ input:checked + .slider:before {
     }
 }
 
-/* ================= 15. GOOGLE AUTHENTICATION BUTTONS ================= */
+/*
+================= 15. GOOGLE AUTHENTICATION BUTTONS =================
 .google-auth-separator {
     display: flex;
     align-items: center;
@@ -3515,6 +3373,7 @@ input:checked + .slider:before {
 .google-signin-btn .google-icon {
     display: block;
 }
+*/
 
 /* Curriculum Interactive Carousel Showcase */
 .curriculum-carousel {
