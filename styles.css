@@ -771,7 +771,6 @@ select:focus {
 }
 
 .tech-card {
-    cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -793,13 +792,6 @@ select:focus {
 .tech-card-desc {
     color: var(--color-text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-}
-
-.tech-link {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-accent-cyan);
 }
 
 /* Value Prop Grid */
