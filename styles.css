@@ -725,6 +725,69 @@ select:focus {
     right: -20px;
 }
 
+/* ================= WORKSHOP PHOTO REEL ================= */
+.ws-reel-section {
+    padding: 2.5rem 0 2rem;
+    border-top: 1px solid var(--color-border-subtle);
+    overflow: hidden;
+}
+
+.ws-reel-header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.ws-reel-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.ws-reel-viewport {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.ws-reel-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: reel-scroll 40s linear infinite;
+}
+
+.ws-reel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes reel-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.ws-reel-img {
+    height: 190px;
+    width: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--color-border-subtle);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ws-reel-img:hover {
+    transform: scale(1.04);
+    border-color: var(--color-accent-cyan);
+    box-shadow: 0 0 18px rgba(var(--color-accent-cyan-rgb), 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ws-reel-track { animation: none; }
+}
+/* ======================================================= */
+
 /* Statistics Section */
 .stats-section {
     padding: 3rem 0;
