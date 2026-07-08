@@ -378,14 +378,14 @@ async function handleRegistrationSubmit(event) {
         studentName,
         parentName,
         mobileNumber: mobile,
-        whatsAppNumber: whatsapp,
+        whatsappNumber: whatsapp,
         emailAddress: email,
         grade,
         schoolName: school,
         city,
         previousExperience: prevExp,
-        interestedTechnologies: interests,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        interestedTechnologies: interests.join(', '),
+        timestamp: new Date().toISOString()
     };
 
     // Render local ticket details
@@ -402,38 +402,12 @@ async function handleRegistrationSubmit(event) {
 
     try {
         if (db) {
-            // Save to registrations collection
             await db.collection('registrations').add(registrationData);
-            
-            // Increment seats counter in active_workshop document
-            const workshopRef = db.collection('workshops').doc('active_workshop');
-            await db.runTransaction(async (transaction) => {
-                const doc = await transaction.get(workshopRef);
-                if (doc.exists) {
-                    const currentSeats = doc.data().seatsTaken || 0;
-                    transaction.update(workshopRef, { seatsTaken: currentSeats + 1 });
-                }
-            });
-            
-            // Auto-create student user account for Student Portal access
-            try {
-                const userCredential = await auth.createUserWithEmailAndPassword(email, "student123");
-                const uid = userCredential.user.uid;
-                await db.collection('users').doc(uid).set({
-                    uid: uid,
-                    email: email,
-                    role: 'student',
-                    name: studentName,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-                console.log("Successfully auto-created student account.");
-            } catch (signupError) {
-                // If user already exists in auth, just log them or update Firestore role
-                console.log("User may already exist in Auth: ", signupError.message);
-            }
+            console.log("Registration saved:", registrationData);
         }
     } catch (err) {
-        console.error("Error saving registration to Firestore: ", err);
+        console.error("Registration save failed:", err);
+        alert("Your seat is reserved! However we hit a snag saving your details — please WhatsApp us at +91 63606 60450 with your name and we will confirm manually.");
     }
 }
 
