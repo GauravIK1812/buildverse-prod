@@ -27,8 +27,8 @@
     --gradient-glow-green: radial-gradient(circle, rgba(var(--color-accent-green-rgb), 0.15) 0%, rgba(0,0,0,0) 70%);
 
     /* Typography */
-    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     /* Shadow & Glass */
     --glass-bg: rgba(255, 255, 255, 0.03);
@@ -1016,65 +1016,290 @@ select:focus {
 
 /* Registration Form Card */
 .registration-form-card {
-    padding: 2.5rem;
-    background: radial-gradient(circle at 100% 0%, rgba(var(--color-accent-cyan-rgb), 0.03) 0%, rgba(0,0,0,0) 70%), rgba(255, 255, 255, 0.03);
+    padding: 0;
+    overflow: hidden;
+    background: rgba(8, 8, 12, 0.85);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .form-header {
-    margin-bottom: 2rem;
+    position: relative;
+    padding: 2rem 2.5rem 1.75rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    background: radial-gradient(ellipse at 100% 0%, rgba(var(--color-accent-cyan-rgb), 0.05) 0%, rgba(0,0,0,0) 70%);
+    overflow: hidden;
+}
+
+.form-header-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+}
+
+.form-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.45rem;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.02em;
 }
 
 .form-header p {
     color: var(--color-text-secondary);
-    font-size: 0.875rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
 }
 
+.form-header-badge {
+    background: var(--gradient-brand);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Seats Counter */
 .seats-counter-widget {
-    margin-top: 1.5rem;
+    margin-top: 0;
+}
+
+.seats-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.seats-bar-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+}
+
+.seats-bar-pct {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #ff6b35;
 }
 
 .seats-progress-bar {
     width: 100%;
-    height: 6px;
+    height: 8px;
     background: rgba(255,255,255,0.05);
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .seats-filled-progress {
     height: 100%;
     background: var(--gradient-brand);
-    border-radius: 3px;
-    transition: width 1s ease-out;
+    border-radius: 4px;
+    transition: width 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+}
+
+.seats-filled-progress.urgent {
+    background: linear-gradient(90deg, #ff8c00, #ff4757);
+    box-shadow: 0 0 12px rgba(255, 71, 87, 0.4);
+}
+
+.seats-filled-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25) 50%, transparent);
+    animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+    0% { left: -100%; }
+    60%, 100% { left: 200%; }
 }
 
 .seats-labels {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
+    color: var(--color-text-secondary);
 }
 
 .badge-status {
     background: rgba(var(--color-accent-green-rgb), 0.1);
     color: var(--color-accent-green);
-    padding: 0.15rem 0.5rem;
+    padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.7rem;
 }
 
-.form-disclosure {
+.badge-urgent {
+    background: rgba(255, 71, 87, 0.12);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 71, 87, 0.25);
+    animation: urgentPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgentPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Form Body Padding */
+#workshop-registration-form {
+    padding: 1.75rem 2.5rem 2rem;
+}
+
+/* Section dividers within form */
+.form-section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-cyan);
+    margin: 1.5rem 0 1rem;
+}
+
+.form-section-label:first-child {
+    margin-top: 0;
+}
+
+.form-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border-subtle);
+}
+
+.form-section-label .optional-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-border-subtle);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Label icon and stars */
+.label-icon {
+    font-size: 0.8rem;
+    margin-right: 0.1rem;
+}
+
+.required-star {
+    color: #ff6b6b;
+    font-weight: 800;
+}
+
+.label-hint {
     font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-left: 0.25rem;
+}
+
+/* Input wrapper for icons */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+}
+
+/* Same as mobile checkbox */
+.same-as-mobile-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    margin-top: 0.4rem;
+}
+
+.same-as-mobile-label input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    background: none;
+    border: 1px solid var(--color-border-subtle);
+    padding: 0;
+    accent-color: var(--color-accent-cyan);
+    cursor: pointer;
+}
+
+.same-as-mobile-label:hover span {
+    color: var(--color-text-secondary);
+}
+
+/* Submit button */
+.form-submit-btn {
+    margin-top: 0.5rem;
+    height: 52px;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15) 50%, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+}
+
+.form-submit-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.form-disclosure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
     color: var(--color-text-muted);
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.85rem;
+}
+
+.form-disclosure svg {
+    flex-shrink: 0;
+    opacity: 0.5;
 }
 
 /* Success View Card */

@@ -284,11 +284,32 @@ function initCountdownTimer() {
 
 
 /* ================= 5. LIMITED SEATS DYNAMIC UPDATE ================= */
-let seatsFilled = 90;
+let seatsFilled = 127;
+const TOTAL_SEATS = 150;
 
 function initSeatsSimulation() {
-    // Simulated mock interval disabled. Seats count is populated dynamically from the database.
-    console.log("Real-time database seat tracking active.");
+    const progressEl = document.getElementById('seats-progress');
+    const seatsTextEl = document.getElementById('seats-taken');
+    const seatsLeftEl = document.getElementById('seats-left');
+    const seatsPctEl = document.getElementById('seats-pct');
+
+    if (!progressEl) return;
+
+    const targetPct = Math.round((seatsFilled / TOTAL_SEATS) * 100);
+    const seatsLeft = TOTAL_SEATS - seatsFilled;
+
+    if (seatsTextEl) seatsTextEl.innerText = `${seatsFilled} of ${TOTAL_SEATS} seats filled`;
+    if (seatsLeftEl) seatsLeftEl.innerText = seatsLeft;
+    if (seatsPctEl) seatsPctEl.innerText = `${targetPct}%`;
+
+    // Animate bar from 0 → target on load
+    let current = 0;
+    const step = targetPct / 60;
+    const timer = setInterval(() => {
+        current = Math.min(current + step, targetPct);
+        progressEl.style.width = `${current}%`;
+        if (current >= targetPct) clearInterval(timer);
+    }, 16);
 }
 
 
@@ -421,6 +442,28 @@ function resetRegistrationForm() {
     document.getElementById('workshop-registration-form').reset();
     document.getElementById('registration-success-wrapper').classList.add('hidden');
     document.getElementById('registration-card-wrapper').classList.remove('hidden');
+}
+
+function syncWhatsApp(checkbox) {
+    const mobileEl = document.getElementById('mobile-num');
+    const whatsappEl = document.getElementById('whatsapp-num');
+    if (!mobileEl || !whatsappEl) return;
+    if (checkbox.checked) {
+        whatsappEl.value = mobileEl.value;
+        whatsappEl.readOnly = true;
+        whatsappEl.style.opacity = '0.6';
+        mobileEl.addEventListener('input', mirrorToWhatsapp);
+    } else {
+        whatsappEl.readOnly = false;
+        whatsappEl.style.opacity = '1';
+        mobileEl.removeEventListener('input', mirrorToWhatsapp);
+    }
+}
+
+function mirrorToWhatsapp() {
+    const mobileEl = document.getElementById('mobile-num');
+    const whatsappEl = document.getElementById('whatsapp-num');
+    if (whatsappEl && whatsappEl.readOnly) whatsappEl.value = mobileEl.value;
 }
 
 

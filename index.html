@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -366,114 +366,156 @@
                     <div class="workshop-form-col">
                         <div class="registration-form-card glass-card neon-glow-border" id="registration-card-wrapper">
                             <div class="form-header">
-                                <h3>Reserve Your Seat</h3>
-                                <p>Seats are strictly capped at 150 to maintain a 1:5 mentor ratio.</p>
+                                <div class="form-header-accent"></div>
+                                <div class="form-header-top">
+                                    <div>
+                                        <h3>Reserve Your Free Seat</h3>
+                                        <p>Strictly capped at 150 — 1:5 mentor ratio guaranteed.</p>
+                                    </div>
+                                    <div class="form-header-badge">FREE</div>
+                                </div>
 
                                 <div class="seats-counter-widget">
+                                    <div class="seats-bar-header">
+                                        <span class="seats-bar-label">Workshop Capacity</span>
+                                        <span class="seats-bar-pct" id="seats-pct">85%</span>
+                                    </div>
                                     <div class="seats-progress-bar">
-                                        <div class="seats-filled-progress" id="seats-progress" style="width: 60%;">
-                                        </div>
+                                        <div class="seats-filled-progress urgent" id="seats-progress" style="width: 0%;"></div>
                                     </div>
                                     <div class="seats-labels">
-                                        <span id="seats-taken">90 of 150 seats filled</span>
-                                        <span class="badge-status">Fast filling</span>
+                                        <span id="seats-taken">127 of 150 seats filled</span>
+                                        <span class="badge-status badge-urgent">⚡ Only <span id="seats-left">23</span> left!</span>
                                     </div>
                                 </div>
                             </div>
 
                             <form id="workshop-registration-form" onsubmit="handleRegistrationSubmit(event)">
+
+                                <div class="form-section-label">Personal Details</div>
                                 <div class="form-group-row">
                                     <div class="form-group">
-                                        <label for="student-name">Student Name *</label>
-                                        <input type="text" id="student-name" required placeholder="e.g., Aarav Sharma">
+                                        <label for="student-name">
+                                            <span class="label-icon">👤</span> Student Name <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="student-name" required placeholder="e.g., Aarav Sharma">
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="parent-name">Parent Name *</label>
-                                        <input type="text" id="parent-name" required placeholder="e.g., Priya Sharma">
+                                        <label for="parent-name">
+                                            <span class="label-icon">👨‍👧</span> Parent / Guardian Name <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="parent-name" required placeholder="e.g., Priya Sharma">
+                                        </div>
                                     </div>
                                 </div>
 
+                                <div class="form-section-label">Contact Information</div>
                                 <div class="form-group-row">
                                     <div class="form-group">
-                                        <label for="mobile-num">Mobile Number *</label>
-                                        <input type="tel" id="mobile-num" required placeholder="e.g., +91 98765 43210">
+                                        <label for="mobile-num">
+                                            <span class="label-icon">📱</span> Mobile Number <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input type="tel" id="mobile-num" required placeholder="+91 98765 43210">
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="whatsapp-num">WhatsApp Number *</label>
-                                        <input type="tel" id="whatsapp-num" required
-                                            placeholder="e.g., +91 98765 43210">
+                                        <label for="whatsapp-num">
+                                            <span class="label-icon">💬</span> WhatsApp Number <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input type="tel" id="whatsapp-num" required placeholder="+91 98765 43210">
+                                        </div>
+                                        <label class="same-as-mobile-label">
+                                            <input type="checkbox" id="same-as-mobile" onchange="syncWhatsApp(this)">
+                                            <span>Same as mobile</span>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="student-email">
+                                        <span class="label-icon">✉️</span> Email Address <span class="required-star">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="email" id="student-email" required placeholder="parent@email.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-section-label">Academic Profile</div>
                                 <div class="form-group-row">
                                     <div class="form-group">
-                                        <label for="student-email">Email Address *</label>
-                                        <input type="email" id="student-email" required
-                                            placeholder="e.g., parent@email.com">
+                                        <label for="student-grade">
+                                            <span class="label-icon">🎓</span> Grade <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <select id="student-grade" required>
+                                                <option value="">Select Grade</option>
+                                                <option value="6">Grade 6 (Age 10–11)</option>
+                                                <option value="7">Grade 7 (Age 11–12)</option>
+                                                <option value="8">Grade 8 (Age 12–13)</option>
+                                                <option value="9">Grade 9 (Age 13–14)</option>
+                                                <option value="10">Grade 10 (Age 14–15)</option>
+                                                <option value="11">Grade 11 (Age 15–16)</option>
+                                                <option value="12">Grade 12 (Age 16–18)</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="student-grade">Grade *</label>
-                                        <select id="student-grade" required>
-                                            <option value="">Select Grade</option>
-                                            <option value="6">Grade 6 (Age 10-11)</option>
-                                            <option value="7">Grade 7 (Age 11-12)</option>
-                                            <option value="8">Grade 8 (Age 12-13)</option>
-                                            <option value="9">Grade 9 (Age 13-14)</option>
-                                            <option value="10">Grade 10 (Age 14-15)</option>
-                                            <option value="11">Grade 11 (Age 15-16)</option>
-                                            <option value="12">Grade 12 (Age 16-18)</option>
+                                        <label for="city-name">
+                                            <span class="label-icon">📍</span> City <span class="required-star">*</span>
+                                        </label>
+                                        <div class="input-wrapper">
+                                            <input type="text" id="city-name" required placeholder="e.g., Bengaluru">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="school-name">
+                                        <span class="label-icon">🏫</span> School Name <span class="required-star">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="school-name" required placeholder="e.g., Delhi Public School">
+                                    </div>
+                                </div>
+
+                                <div class="form-section-label">Preferences <span class="optional-tag">Optional</span></div>
+                                <div class="form-group">
+                                    <label for="prev-exp">Prior Coding / Electronics Experience</label>
+                                    <div class="input-wrapper">
+                                        <select id="prev-exp">
+                                            <option value="none">🟢 Beginner — Never coded or assembled hardware</option>
+                                            <option value="scratch">🟡 Familiar with Scratch / block programming</option>
+                                            <option value="python-basics">🟠 Know Python or C++ basics</option>
+                                            <option value="arduino-esp">🔴 Built projects on Arduino / ESP32 before</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group-row">
-                                    <div class="form-group">
-                                        <label for="school-name">School Name *</label>
-                                        <input type="text" id="school-name" required
-                                            placeholder="e.g., Delhi Public School">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="city-name">City *</label>
-                                        <input type="text" id="city-name" required placeholder="e.g., Bengaluru">
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
-                                    <label for="prev-exp">Previous Coding/Electronics Experience (Optional)</label>
-                                    <select id="prev-exp">
-                                        <option value="none">Beginner - Never coded/assembled hardware</option>
-                                        <option value="scratch">Familiar with Scratch/block programming</option>
-                                        <option value="python-basics">Familiar with text languages (Python, C++)
-                                        </option>
-                                        <option value="arduino-esp">Have built projects on Arduino or ESP32 before
-                                        </option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Technologies they are interested in (Select multiple)</label>
+                                    <label>Technologies of Interest <span class="label-hint">(select all that apply)</span></label>
                                     <div class="checkbox-pill-grid">
-                                        <label class="check-pill"><input type="checkbox" name="interest" value="ai">
-                                            AI</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest" value="ml">
-                                            Machine Learning</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest"
-                                                value="robotics"> Robotics</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest" value="drones">
-                                            Drones</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest" value="iot"
-                                                checked> IoT</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest"
-                                                value="embedded"> Microcontrollers</label>
-                                        <label class="check-pill"><input type="checkbox" name="interest"
-                                                value="printing"> 3D Printing</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="ai"> 🧠 AI</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="ml"> 📊 Machine Learning</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="robotics"> 🤖 Robotics</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="drones"> 🛸 Drones</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="iot" checked> 🌐 IoT</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="embedded"> 📟 Microcontrollers</label>
+                                        <label class="check-pill"><input type="checkbox" name="interest" value="printing"> 🖨️ 3D Printing</label>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary btn-block btn-glow">Reserve My Free
-                                    Seat</button>
-                                <p class="form-disclosure">No payment required. Seats are confirmed on a first-come,
-                                    first-served basis.</p>
+                                <button type="submit" class="btn btn-primary btn-block btn-glow form-submit-btn">
+                                    <span>🚀 Reserve My Free Seat</span>
+                                </button>
+                                <p class="form-disclosure">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    No payment required. Confirmed on first-come, first-served basis.
+                                </p>
                             </form>
                         </div>
 
