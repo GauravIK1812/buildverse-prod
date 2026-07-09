@@ -66,21 +66,27 @@ export function CurriculumCarousel() {
       </div>
 
       {/* Image */}
-      <div className="relative h-64 md:h-72">
+      <div
+        className="relative"
+        style={{ background: "#08081a" }}
+      >
         {DAYS.map((day, i) => (
           <div
             key={i}
             className={cn(
-              "absolute inset-0 transition-opacity duration-300",
-              active === i ? "opacity-100" : "opacity-0 pointer-events-none"
+              "transition-opacity duration-300",
+              active === i ? "opacity-100" : "opacity-0 absolute inset-0 pointer-events-none"
             )}
           >
             <Image
               src={day.src}
               alt={day.alt}
-              fill
-              className="object-cover"
+              width={800}
+              height={520}
+              className="w-full h-auto"
+              style={{ display: "block" }}
               loading={i === 0 ? "eager" : "lazy"}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         ))}
