@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thebuilders.in"),
   title: "BuildVerse | Build. Compete. Innovate.",
   description:
     "Premium STEM Education platform offering live mentorship in AI, Robotics, Drones, Electronics, IoT, and Embedded Systems. Build your future today.",
@@ -16,18 +17,21 @@ export const metadata: Metadata = {
     title: "BuildVerse | Build. Compete. Innovate.",
     description:
       "Premium STEM Education platform offering live mentorship in AI, Robotics, Drones, Electronics, IoT, and Embedded Systems.",
-    images: [{ url: "https://thebuilders.in/assets/logo.jpg" }],
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BuildVerse — Build. Compete. Innovate.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BuildVerse | Build. Compete. Innovate.",
     description:
       "Premium STEM Education platform offering live mentorship in AI, Robotics, Drones, Electronics, IoT, and Embedded Systems.",
-    images: ["https://thebuilders.in/assets/logo.jpg"],
-  },
-  icons: {
-    icon: "/assets/logo.jpg",
-    apple: "/assets/logo.jpg",
+    images: ["/opengraph-image.png"],
   },
 };
 
